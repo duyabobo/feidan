@@ -141,7 +141,7 @@ LOGGING = {
             'formatter': 'standard'
         },
         'file_handler': {
-             'level': 'ERROR',
+             'level': 'DEBUG',
              'class': 'logging.handlers.TimedRotatingFileHandler',
              'filename': '/tmp/feidan_log/server_log.log',
              'formatter': 'standard'
