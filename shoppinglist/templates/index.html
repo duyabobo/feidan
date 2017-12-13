@@ -5,13 +5,13 @@
 {% block body %}
     <div class="container">
     <div class="row">
-        {% for f in first_shopping_list %}
+        {% for serial_number, name in first_shopping_list %}
         <div class="col-md-3">
         <div class="first_shopping_list">
-            <a href="#">{{ f }}</a>
+            <a href="{% url 'second_shopping_list' serial_number %}">{{ name }}</a>
         </div>
         </div>
-    {% endfor %}
+        {% endfor %}
     </div>
     </div>
 {% endblock %}

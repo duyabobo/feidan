@@ -15,9 +15,4 @@ def get_first_shopping_list_context():
     first_shopping_list_context = {
         f_s_l.serial_number: f_s_l.name for f_s_l in first_shopping_lists
     }
-    sorted_list = map(  # 排个序
-        lambda x:
-        x[1],
-        sorted(first_shopping_list_context.items(), key=lambda item: item[0])
-    )
-    return {'first_shopping_list': sorted_list}
+    return {'first_shopping_list': sorted(first_shopping_list_context.items(), key=lambda item: item[0])}

@@ -14,10 +14,10 @@ def api_logger(func):
     :param func:
     :return:
     """
-    def inner_func(request):
+    def inner_func(request, *args, **kwargs):
         try:
             start = time.time()
-            result = func(request)
+            result = func(request, *args, **kwargs)
             end = time.time()
             logger.info(
                 'Method: {0}, Url: {1}, Body: {2}, COOKIES: {3}, Delay: {4}'.format
