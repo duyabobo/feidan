@@ -9,7 +9,7 @@ from django.db import models
 
 class BaseModel(models.Model):
     """基础扩展类"""
-    created_at = models.DateTimeField('创建记录时间', auto_now=True)
+    created_at = models.DateTimeField('创建记录时间', auto_now_add=True)
     updated_at = models.DateTimeField('最后修改日期', auto_now=True)
 
     @classmethod
