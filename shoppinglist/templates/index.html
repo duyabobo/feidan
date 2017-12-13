@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 {% block title %}
-    real title
+    非单
 {% endblock %}
 {% block body %}
-    real body
+    <div class="container">
+    <div class="row">
+        {% for f in first_shopping_list %}
+        <div class="col-md-3">
+        <div class="first_shopping_list">
+            <a href="#">{{ f }}</a>
+        </div>
+        </div>
+    {% endfor %}
+    </div>
+    </div>
 {% endblock %}
