@@ -33,3 +33,10 @@ class FirstShoppingList(BaseModel):
 
     class Meta:
         db_table = 't_first_shopping_list'
+
+
+class SecondShoppingList(BaseModel):
+    """二级菜单"""
+    first_sl_id = models.IntegerField('所属顶级菜单id', default=1)
+    name = models.CharField('名称', max_length=20, default='')
+    serial_number = models.IntegerField('位置序号', default=0)
