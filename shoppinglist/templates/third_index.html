@@ -2,7 +2,9 @@
 <div class="row">
     {% for third_shopping_item in third_shopping_list %}
     <div class="col-md-3">
-    <a href="#">{{ third_shopping_item.name }}</a>
+    <div class="third_shopping_item">
+        <a href="#">{{ third_shopping_item.name }}</a>
+    </div>
     </div>
     {% endfor %}
 </div>

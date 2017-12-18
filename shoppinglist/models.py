@@ -56,6 +56,6 @@ class SecondShoppingList(BaseModel):
 class ThirdShoppingList(BaseModel):
     """三级菜单，即最终的具体商品品类"""
     father_id = models.IntegerField('所属二级菜单id', default=1)
-    name = models.CharField('名称', max_length=20, default='')
+    name = models.CharField('名称', max_length=50, default='')
     status = models.IntegerField('状态', default=0)  # 0：上线，1：在售，2：售罄，3：下架
     serial_number = models.FloatField('位置序号', default=0)

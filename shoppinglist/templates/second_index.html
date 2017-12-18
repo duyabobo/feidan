@@ -4,13 +4,27 @@
 {% endblock %}
 {% block body %}
     <div class="container">
-    <div class="row">
+    <div class="row second_shopping_list">
         {% for second_shopping_item in second_shopping_list %}
-        <div class="col-md-2 second_shopping_list">
+        <div class="col-md-2 second_shopping_item">
             <a href="#" class={{ second_shopping_item.id }}>{{ second_shopping_item.name }}</a>
         </div>
         {% endfor %}
     </div>
     </div>
+    <div class="container">
+    <div class="row second_shopping_list_tag">
+        <button> tag </button>
+        {% for tag in second_shopping_list_tags %}  {#todo#}
+            <button> tag </button>
+        {% endfor %}
+    </div>
+    </div>
     <div class="third_shopping_list"></div>
+    <script>
+        $(document).ready(function(){
+            $('body > div.container > div > div:nth-child(1)').addClass('active');
+            third_shopping_list();
+        });
+    </script>
 {% endblock %}

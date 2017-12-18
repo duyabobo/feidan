@@ -7,7 +7,7 @@
     <div class="row">
         {% for first_shopping_item in first_shopping_list %}
         <div class="col-md-3">
-        <div class="first_shopping_list">
+        <div class="first_shopping_item">
             <a href="{% url 'second_shopping_list' first_shopping_item.id %}">{{ first_shopping_item.name }}</a>
         </div>
         </div>

@@ -12,7 +12,9 @@ def get_third_shopping_list_context(second_shopping_item_id, page=0):
     :param page:
     :return:
     """
-    third_shopping_lists = ThirdShoppingList.get_items_by_father_id(father_id=second_shopping_item_id, page=page, limit=24)
+    third_shopping_lists = []
+    if second_shopping_item_id != 'undefined':
+        third_shopping_lists = ThirdShoppingList.get_items_by_father_id(father_id=second_shopping_item_id, page=page, limit=24)
     third_shopping_list_context = {
         t_s_l.serial_number: t_s_l for t_s_l in third_shopping_lists
     }
