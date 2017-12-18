@@ -29,7 +29,7 @@ class BaseModel(models.Model):
 class FirstShoppingList(BaseModel):
     """顶级菜单"""
     name = models.CharField('名称', max_length=20, default='')
-    serial_number = models.IntegerField('位置序号', default=0)
+    serial_number = models.FloatField('位置序号', default=0)
 
     class Meta:
         db_table = 't_first_shopping_list'
@@ -39,7 +39,7 @@ class SecondShoppingList(BaseModel):
     """二级菜单"""
     first_sl_id = models.IntegerField('所属顶级菜单id', default=1)
     name = models.CharField('名称', max_length=20, default='')
-    serial_number = models.IntegerField('位置序号', default=0)
+    serial_number = models.FloatField('位置序号', default=0)
 
     @classmethod
     def get_items(cls, page=0, limit=50, **kwargs):
