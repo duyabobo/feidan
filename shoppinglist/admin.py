@@ -12,4 +12,10 @@ class FirstShoppingListAdmin(admin.ModelAdmin):
     search_fields = ('id', 'name')
 
 
+class SecondShoppingListAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'serial_number')
+    search_fields = ('id', 'name')
+
+
 admin.site.register(FirstShoppingList, FirstShoppingListAdmin)
+admin.site.register(SecondShoppingList, SecondShoppingListAdmin)
