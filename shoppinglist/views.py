@@ -3,7 +3,8 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from feidan.logger import api_logger
-from utils.first_shopping_list import get_first_shopping_list_context
+from db_utils.first_shopping_list import get_first_shopping_list_context
+from db_utils.second_shopping_list import get_second_shopping_list_context
 
 # Create your views here.
 
@@ -20,14 +21,14 @@ def index(request):
 
 
 @api_logger
-def second_index(request, name):
+def second_index(request, first_shopping_item_id):
     """
     展示二级品类菜单
     :param request:
-    :param name: 一级品类名称，中文
+    :param first_shopping_item_id: 一级品类序列号
     :return:
     """
-    context = {'name': name}
+    context = get_second_shopping_list_context(first_shopping_item_id)
     return render(
         request,
         'second_index.html',

@@ -40,3 +40,15 @@ class SecondShoppingList(BaseModel):
     first_sl_id = models.IntegerField('所属顶级菜单id', default=1)
     name = models.CharField('名称', max_length=20, default='')
     serial_number = models.IntegerField('位置序号', default=0)
+
+    @classmethod
+    def get_items(cls, page=0, limit=50, **kwargs):
+        """
+        查询某个一级菜单下所有记录的最多前50条记录
+        :param page:
+        :param limit:
+        :param kwargs:
+        :return:
+        """
+        first_sl_id = int(kwargs.get('first_shopping_item_id', 0))
+        return cls.objects.filter(first_sl_id=first_sl_id)[page * limit: (page + 1) * limit]

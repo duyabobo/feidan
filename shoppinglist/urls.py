@@ -7,5 +7,5 @@ from views import index, second_index
 
 urlpatterns = [
     url(r'^first$', index, name='first_shopping_list'),
-    url(r'^second/(?P<name>\w+)/$', second_index, name='second_shopping_list'),
+    url(r'^second/(?P<first_shopping_item_id>\w+)/$', second_index, name='second_shopping_list'),
 ]
