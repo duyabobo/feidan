@@ -22,6 +22,17 @@ class BaseModel(models.Model):
         """
         return cls.objects.all()[page*limit: (page+1)*limit]
 
+    @classmethod
+    def get_items_by_father_id(cls, father_id, page=0, limit=50):
+        """
+        查询某级菜单下子菜单记录的最多前50条记录
+        :param father_id:
+        :param page:
+        :param limit:
+        :return:
+        """
+        return cls.objects.filter(father_id=father_id)[page * limit: (page + 1) * limit]
+
     class Meta:
         abstract = True
 
@@ -37,18 +48,14 @@ class FirstShoppingList(BaseModel):
 
 class SecondShoppingList(BaseModel):
     """二级菜单"""
-    first_sl_id = models.IntegerField('所属顶级菜单id', default=1)
+    father_id = models.IntegerField('所属顶级菜单id', default=1)
     name = models.CharField('名称', max_length=20, default='')
     serial_number = models.FloatField('位置序号', default=0)
 
-    @classmethod
-    def get_items(cls, page=0, limit=50, **kwargs):
-        """
-        查询某个一级菜单下所有记录的最多前50条记录
-        :param page:
-        :param limit:
-        :param kwargs:
-        :return:
-        """
-        first_sl_id = int(kwargs.get('first_shopping_item_id', 0))
-        return cls.objects.filter(first_sl_id=first_sl_id)[page * limit: (page + 1) * limit]
+
+class ThirdShoppingList(BaseModel):
+    """三级菜单，即最终的具体商品品类"""
+    father_id = models.IntegerField('所属二级菜单id', default=1)
+    name = models.CharField('名称', max_length=20, default='')
+    status = models.IntegerField('状态', default=0)  # 0：上线，1：在售，2：售罄，3：下架
+    serial_number = models.FloatField('位置序号', default=0)

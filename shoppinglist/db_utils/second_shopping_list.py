@@ -12,9 +12,9 @@ def get_second_shopping_list_context(first_shopping_item_id):
     :param first_shopping_item_id: 顶级菜单id
     :return:
     """
-    second_shopping_lists = SecondShoppingList.get_items(first_shopping_item_id=first_shopping_item_id)
+    second_shopping_lists = SecondShoppingList.get_items_by_father_id(father_id=first_shopping_item_id)
     second_shopping_list_context = {
-        f_s_l.serial_number: f_s_l for f_s_l in second_shopping_lists
+        s_s_l.serial_number: s_s_l for s_s_l in second_shopping_lists
     }
     return {
         'second_shopping_list': map(

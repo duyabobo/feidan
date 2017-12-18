@@ -5,6 +5,7 @@ from django.shortcuts import render
 from feidan.logger import api_logger
 from db_utils.first_shopping_list import get_first_shopping_list_context
 from db_utils.second_shopping_list import get_second_shopping_list_context
+from db_utils.third_shopping_list import get_third_shopping_list_context
 
 # Create your views here.
 
@@ -32,5 +33,22 @@ def second_index(request, first_shopping_item_id):
     return render(
         request,
         'second_index.html',
+        context=context
+    )
+
+
+@api_logger
+def third_index(request, second_shopping_item_id):
+    """
+    展示三级品类菜单
+    :param request:
+    :param second_shopping_item_id:
+    :return:
+    """
+    page = int(request.GET.get('page', 0))
+    context = get_third_shopping_list_context(second_shopping_item_id, page=page)
+    return render(
+        request,
+        'third_index.html',
         context=context
     )
