@@ -6,15 +6,11 @@
     <div class="container">
     <div class="row">
         {% for second_shopping_item in second_shopping_list %}
-        <div class="col-md-2">
-        <div class="second_shopping_list">
-            <a href="#">{{ second_shopping_item.name }}</a>
-        </div>
+        <div class="col-md-2 second_shopping_list">
+            <a href="#" class={{ second_shopping_item.id }}>{{ second_shopping_item.name }}</a>
         </div>
         {% endfor %}
     </div>
     </div>
-    <div class="container">
-        third_shopping_list
-    </div>
+    <div class="third_shopping_list"></div>
 {% endblock %}

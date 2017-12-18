@@ -1,20 +1,9 @@
-{% extends 'base.html' %}
-{% block title %}
-    非单
-{% endblock %}
-{% block body %}
-    <div class="container">
-    <div class="row">
-        {% for third_shopping_item in third_shopping_list %}
-        <div class="col-md-3">
-        <div class="second_shopping_list">
-            <a href="#">{{ third_shopping_item.name }}</a>
-        </div>
-        </div>
-        {% endfor %}
+<div class="container">
+<div class="row">
+    {% for third_shopping_item in third_shopping_list %}
+    <div class="col-md-3">
+    <a href="#">{{ third_shopping_item.name }}</a>
     </div>
-    </div>
-    <div class="container">
-        third_shopping_list
-    </div>
-{% endblock %}
+    {% endfor %}
+</div>
+</div>
