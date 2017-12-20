@@ -24,13 +24,9 @@ body > div.container > div > div.second_shopping_item {
     margin-bottom: 4px;
 }
 
-.second_shopping_list_tag {
-    margin-bottom: 4px;
-}
-
-body > div.container > div.second_shopping_list_tag {
-    margin-left: 40px;
-    margin-right: 40px;
+body > div.second_shopping_tag_list {
+    margin-left: 200px;
+    margin-right: 200px;
 }
 
 .third_shopping_item {
