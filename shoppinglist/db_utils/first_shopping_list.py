@@ -11,12 +11,6 @@ def get_first_shopping_list_context():
     获取所有的一级品类菜单数据
     :return:
     """
-    first_shopping_lists = FirstShoppingList.get_items()
-    first_shopping_list_context = {
-        f_s_l.serial_number: f_s_l for f_s_l in first_shopping_lists
-    }
     return {
-        'first_shopping_list': map(
-            lambda x: x[1], sorted(first_shopping_list_context.items(), key=lambda item: item[0])
-        )
+        'first_shopping_list': FirstShoppingList.get_items()
     }
