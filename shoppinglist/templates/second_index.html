@@ -12,19 +12,13 @@
         {% endfor %}
     </div>
     </div>
-    <div class="container">
-    <div class="row second_shopping_list_tag">
-        <button> tag </button>
-        {% for tag in second_shopping_list_tags %}  {#todo#}
-            <button> tag </button>
-        {% endfor %}
-    </div>
-    </div>
+    <div class="second_shopping_tag_list"></div>
     <div class="third_shopping_list"></div>
     <script>
         $(document).ready(function(){
             $('body > div.container > div > div:nth-child(1)').addClass('active');
             third_shopping_list();
+            third_shopping_list_tag()
         });
     </script>
 {% endblock %}

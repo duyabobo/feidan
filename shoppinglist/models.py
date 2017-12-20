@@ -59,3 +59,10 @@ class ThirdShoppingList(BaseModel):
     name = models.CharField('名称', max_length=50, default='')
     status = models.IntegerField('状态', default=0)  # 0：上线，1：在售，2：售罄，3：下架
     serial_number = models.FloatField('位置序号', default=0)
+
+
+class SecondShoppingTagList(BaseModel):
+    """二级菜单的tag"""
+    father_id = models.IntegerField('所属二级菜单id', default=1)
+    name = models.CharField('名称', max_length=50, default='')
+    serial_number = models.FloatField('位置序号', default=0)

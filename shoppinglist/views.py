@@ -6,6 +6,7 @@ from feidan.logger import api_logger
 from db_utils.first_shopping_list import get_first_shopping_list_context
 from db_utils.second_shopping_list import get_second_shopping_list_context
 from db_utils.third_shopping_list import get_third_shopping_list_context
+from db_utils.second_shoppint_tag_list import get_second_shopping_tag_list_context
 
 # Create your views here.
 
@@ -50,5 +51,21 @@ def third_index(request, second_shopping_item_id):
     return render(
         request,
         'third_index.html',
+        context=context
+    )
+
+
+@api_logger
+def second_tag_index(request, second_shopping_item_id):
+    """
+    展示二级品类的 tag
+    :param request:
+    :param second_shopping_item_id:
+    :return:
+    """
+    context = get_second_shopping_tag_list_context(second_shopping_item_id)
+    return render(
+        request,
+        'second_tag.html',
         context=context
     )
