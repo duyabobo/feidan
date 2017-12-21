@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+from feidan.settings import ONE_PAGE_LIMIT
+
 
 # Create your models here.
 
@@ -14,7 +16,16 @@ class BaseModel(models.Model):
     updated_at = models.DateTimeField('最后修改日期', auto_now=True)
 
     @classmethod
-    def get_items(cls, page=0, limit=50):
+    def get_total(cls, father_id):
+        """
+        查询孩子菜单的总数
+        :param father_id:
+        :return:
+        """
+        return cls.objects.filter(father_id=father_id).count()
+
+    @classmethod
+    def get_items(cls, page=0, limit=ONE_PAGE_LIMIT):
         """
         查询所有记录的最多前50条记录
         :param page:
@@ -24,7 +35,7 @@ class BaseModel(models.Model):
         return cls.objects.all().order_by('serial_number')[page*limit: (page+1)*limit]
 
     @classmethod
-    def get_items_by_father_id(cls, father_id, page=0, limit=50):
+    def get_items_by_father_id(cls, father_id, page=0, limit=ONE_PAGE_LIMIT):
         """
         查询某级菜单下子菜单记录的最多前50条记录
         :param father_id:

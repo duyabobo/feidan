@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for feidan project.
 
@@ -161,3 +162,5 @@ LOGGING = {
         },
     }
 }
+
+ONE_PAGE_LIMIT = 24  # 页面中单页显示最多对象个数

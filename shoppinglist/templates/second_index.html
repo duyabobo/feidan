@@ -12,13 +12,15 @@
         {% endfor %}
     </div>
     </div>
+    <div class="container">
     <div class="second_shopping_tag_list"></div>
     <div class="third_shopping_list"></div>
+    <div class="page_info"></div>
+    </div>
     <script>
         $(document).ready(function(){
             $('body > div.container > div > div:nth-child(1)').addClass('active');
-            third_shopping_list();
-            third_shopping_list_tag()
+            click_second_or_tag();
         });
     </script>
 {% endblock %}
